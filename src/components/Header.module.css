@@ -40,11 +40,11 @@
 }
 
 .w {
-  color: var(--color-accent); /* Red W */
+  color: #FF6600; /* Orange W */
 }
 
 .insa {
-  color: var(--color-primary); /* Blue insa */
+  color: #FF6600; /* Orange insa */
 }
 
 .header:not(.scrolled) .w, .header:not(.scrolled) .insa {
