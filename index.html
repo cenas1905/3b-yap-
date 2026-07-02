@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3B Yapı | Profesyonel Winsa Çözümleri</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2C3E50; /* Koyu Antrasit */
+            --accent-color: #3498DB; /* Winsa Mavi/Turkuaz */
+            --bg-light: #ECF0F1; /* Açık Gri */
+            --text-dark: #2C3E50;
+            --text-gray: #7f8c8d;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 5%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+        .section-title span {
+            color: var(--accent-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Dynamic Products Section (API Fetch) */
+        .products {
+            padding: 5rem 5%;
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .products .section-title {
+            color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            color: var(--text-dark);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .loading-text {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--bg-light);
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            nav ul {
+                display: none; /* Basitlik için mobil menü gizlendi */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">3B Yapı <span>Winsa</span></a>
+        <nav>
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#urunler">Ürünler</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+        <a href="#iletisim" class="cta-button">Hemen Teklif Al</a>
+    </header>
+
+    <section class="hero">
+        <h1>Evleriniz ve İş Yerleriniz İçin En İyi<br>Isı, Ses ve Güvenlik Çözümleri</h1>
+        <p>Modern yaşamın beklentilerine uygun, estetik ve fonksiyonel çözümler sunan 3B Yapı olarak, Türkiye'nin önde gelen PVC pencere ve kapı sistemleri markası Winsa'nın yetkili bayisiyiz.</p>
+        <a href="#urunler" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2rem;">Ürünleri Keşfedin</a>
+    </section>
+
+    <section class="features" id="hakkimizda">
+        <h2 class="section-title">Neden <span>3B Yapı?</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-temperature-low feature-icon"></i>
+                <h3>Yüksek Isı Yalıtımı</h3>
+                <p>Winsa sistemleri ile enerji maliyetlerinizi düşürürken evinizdeki sıcaklığı koruyun.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Maksimum Güvenlik</h3>
+                <p>Güvenlikten ödün vermeyen sağlam kasa ve kilit mekanizmaları ile huzur içinde yaşayın.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-volume-mute feature-icon"></i>
+                <h3>Kusursuz Ses Yalıtımı</h3>
+                <p>Dışarının gürültüsünü evinizin dışında bırakın. Özel cam yapısıyla sessizliğin tadını çıkarın.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dinamik Ürün Vitrini (Google API / JSON) -->
+    <section class="products" id="urunler">
+        <h2 class="section-title">Winsa <span>Ürün Vitrinimiz</span></h2>
+        <div class="products-grid" id="products-container">
+            <p class="loading-text"><i class="fas fa-spinner fa-spin"></i> Ürünler Veritabanından (API) Yükleniyor...</p>
+        </div>
+    </section>
+
+    <footer id="iletisim">
+        <p>&copy; 2026 3B Yapı - Yetkili Winsa Bayisi. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        // Müşterinin (site sahibinin) girdiği Google API verisi
+        const googleStickApiKey = "BURAYA_API_ANAHTARI_GELECEK"; // GÜVENLİK: API anahtarınızı kod içine doğrudan yazmak yerine gizli tutmalısınız!
+        
+        // Bu örnek API linki gerçek Google Apps Script / Sheets URL'niz ile değiştirilmelidir.
+        // Şimdilik API adresi bilinmediği için siteye "Demo (Test) Verisi" yüklenecektir.
+        const apiUrl = `https://api.ornek-google-sheets.com/veri?token=${googleStickApiKey}`;
+
+        async function fetchProducts() {
+            const container = document.getElementById('products-container');
+            
+            try {
+                // Burada normalde await fetch(apiUrl) yapılır.
+                // Gerçek API linkini bilmediğimiz için 1.5 saniye bekleyip Test Ürünleri (Mock Data) yükletiyoruz
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Müşteri (Sitenin sahibi), Google Tabloya ne yazarsa otomatik burada görünecek!
+                const demoDataFromGoogle = [
+                    {
+                        isim: "Winsa Dorado 76",
+                        aciklama: "Üstün ısı ve ses yalıtımı sağlayan 76mm profil sistemi. Şık ve zarif hatlar.",
+                        resim: "https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    },
+                    {
+                        isim: "Winsa Safir 70",
+                        aciklama: "Ekonomik ve yüksek performanslı. Dar mekanlar için ideal geniş görüş açısı.",
+                        resim: "https://images.unsplash.com/photo-1541604193435-22287d32c2c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    },
+                    {
+                        isim: "Winsa Panorama",
+                        aciklama: "Kesintisiz manzara için mükemmel yalıtımlı sürme (sürgülü) kapı sistemi.",
+                        resim: "https://images.unsplash.com/photo-1583847268964-b28ce8f31586?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    }
+                ];
+
+                container.innerHTML = ''; // Yükleniyor yazısını sil
+
+                // Google'dan gelen (veya şimdilik demo olan) verileri HTML içine yerleştirme
+                demoDataFromGoogle.forEach(urun => {
+                    const html = `
+                        <div class="product-card">
+                            <img src="${urun.resim}" alt="${urun.isim}" class="product-img">
+                            <div class="product-info">
+                                <h3>${urun.isim}</h3>
+                                <p>${urun.aciklama}</p>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += html;
+                });
+
+            } catch (error) {
+                container.innerHTML = '<p class="loading-text" style="color: #e74c3c;">Ürünler yüklenirken hata oluştu. Lütfen Google API bağlantısını kontrol edin.</p>';
+                console.error("API Hatası:", error);
+            }
+        }
+
+        // Site açıldığında ürünleri çek
+        window.addEventListener('DOMContentLoaded', fetchProducts);
+    </script>
+</body>
+</html>
