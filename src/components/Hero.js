@@ -8,7 +8,7 @@ export default function Hero() {
     <section className={styles.hero} style={{ backgroundImage: `url(${hero.image})` }}>
       <div className={styles.overlay}></div>
       <div className={`container ${styles.content}`}>
-        <div className="glass animate-fade-in" style={{ padding: '3.5rem', borderRadius: '12px', maxWidth: '800px' }}>
+        <div className="animate-fade-in">
           <h1 className={styles.heading}>{hero.heading}</h1>
           <p className={styles.subheading}>{hero.subheading}</p>
           <a href="#winsa" className="btn">{hero.cta_text}</a>
