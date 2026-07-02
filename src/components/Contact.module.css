@@ -1,7 +1,8 @@
 .footer {
-  background-color: #050505;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--color-primary);
+  border-top: 5px solid var(--color-accent);
   padding-top: 4rem;
+  color: #ffffff;
 }
 
 .footerContainer {
@@ -20,10 +21,11 @@
 .brand h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: #ffffff;
 }
 
 .brand p {
-  color: var(--color-text-muted);
+  color: #d1d5db;
   max-width: 400px;
 }
 
@@ -36,7 +38,7 @@
   font-family: var(--font-sans);
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
-  color: #fff;
+  color: #ffffff;
 }
 
 .info ul {
@@ -45,17 +47,17 @@
 
 .info li {
   margin-bottom: 0.75rem;
-  color: var(--color-text-muted);
+  color: #d1d5db;
 }
 
 .info strong {
-  color: var(--color-accent);
+  color: #ffffff;
 }
 
 .copyright {
   text-align: center;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: var(--color-text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
   font-size: 0.9rem;
 }

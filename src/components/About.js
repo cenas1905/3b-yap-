@@ -12,7 +12,7 @@ export default function About() {
           <div className={styles.imageAccent}></div>
         </div>
         <div className={styles.textContent}>
-          <h2 className="section-title" style={{ textAlign: 'left', color: 'var(--color-accent)' }}>{about.title}</h2>
+          <h2 className="section-title" style={{ textAlign: 'left', color: 'var(--color-primary)' }}>{about.title}</h2>
           <p className={styles.description}>{about.description}</p>
         </div>
       </div>
