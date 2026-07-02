@@ -29,26 +29,13 @@
   font-size: 1.5rem;
 }
 
-.winsaLogo {
-  display: flex;
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  font-weight: 900;
-  font-style: italic;
-  letter-spacing: -2px;
-  text-transform: uppercase;
+.winsaLogoImg {
+  height: 35px;
+  width: auto;
 }
 
-.w {
-  color: #FF6600; /* Orange W */
-}
-
-.insa {
-  color: #FF6600; /* Orange insa */
-}
-
-.header:not(.scrolled) .w, .header:not(.scrolled) .insa {
-  color: #ffffff;
+.header:not(.scrolled) .winsaLogoImg {
+  filter: brightness(0) invert(1);
 }
 
 .separator {

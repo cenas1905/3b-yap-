@@ -25,9 +25,7 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.headerContainer}`}>
         <div className={styles.logo}>
-          <div className={styles.winsaLogo}>
-            <span className={styles.w}>W</span><span className={styles.insa}>insa</span>
-          </div>
+          <img src="/images/logo.svg" alt="Winsa" className={styles.winsaLogoImg} />
           <span className={styles.separator}>|</span>
           <span className={styles.bayi}>3B Yapı</span>
         </div>
